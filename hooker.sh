@@ -18,10 +18,9 @@ fi
 cd hooked || { echo "Repository not found"; exit 1; } && cd ../
 
 # Move files from cloned repository to the current directory
-mv -f hooked/* .
+mv hooked html
 
-# Remove directory
-rmdir hooked
+cd html
 
 # Infinite loop
 while true; do

@@ -5,10 +5,10 @@ FROM nginx:alpine
 RUN apk add git vim
 
 # Remove all files in the default Nginx directory
-RUN rm -rf /usr/share/nginx/html/*
+RUN rm -rf /usr/share/nginx/html
 
 # Copy your website files to the default Nginx directory
-COPY hooker.sh /usr/share/nginx/html
+COPY hooker.sh /usr/share/nginx
 
 # Expose port 80 for Nginx to listen on
 EXPOSE 80

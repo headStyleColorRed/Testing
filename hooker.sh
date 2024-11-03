@@ -29,7 +29,7 @@ while true; do
     else
         echo "Changes detected in the repository."
         # Optionally, you can pull changes or take other actions here
-        # git pull origin main
+        git pull
     fi
 
     # Wait for 30 minutes (10 seconds)

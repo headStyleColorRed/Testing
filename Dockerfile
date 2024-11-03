@@ -4,14 +4,11 @@ FROM nginx:alpine
 # Install git and vim
 RUN apk add git vim
 
+# Remove all files in the default Nginx directory
+RUN rm -rf /usr/share/nginx/html/*
+
 # Copy your website files to the default Nginx directory
-COPY . /usr/share/nginx/html
-
-# Ensure hooker.sh is executable
-RUN chmod +x /usr/share/nginx/html/hooker.sh
-
-# Run the hooker.sh script with the current git repository URL
-RUN sh /usr/share/nginx/html/hooker.sh $(git remote get-url origin)
+COPY hooker.sh /usr/share/nginx/html
 
 # Expose port 80 for Nginx to listen on
 EXPOSE 80

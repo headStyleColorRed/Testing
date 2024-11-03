@@ -10,6 +10,12 @@ RUN rm -rf /usr/share/nginx/html
 # Copy your website files to the default Nginx directory
 COPY hooker.sh /usr/share/nginx
 
+# Make the hooker.sh executable
+RUN chmod +x /usr/share/nginx/hooker.sh
+
+# Run the hooker.sh script
+RUN sh /usr/share/nginx/hooker.sh
+
 # Expose port 80 for Nginx to listen on
 EXPOSE 80
 

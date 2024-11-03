@@ -31,6 +31,9 @@ cd hooked || { echo "Repository not found"; exit 1; } && cd ../
 # Move files from cloned repository to the current directory
 mv -f hooked/* .
 
+# Remove directory
+rmdir hooked
+
 # Infinite loop
 while true; do
     # Fetch the latest changes from the remote repository

@@ -7,8 +7,11 @@ RUN apk add git vim
 # Copy your website files to the default Nginx directory
 COPY . /usr/share/nginx/html
 
-# Run the hooker.sh script
-RUN ./hooker.sh
+# Ensure hooker.sh is executable
+RUN chmod +x /usr/share/nginx/html/hooker.sh
+
+# Run the hooker.sh script with the current git repository URL
+RUN sh /usr/share/nginx/html/hooker.sh $(git remote get-url origin)
 
 # Expose port 80 for Nginx to listen on
 EXPOSE 80
